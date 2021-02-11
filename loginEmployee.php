@@ -1,11 +1,12 @@
+
 <?php
-
 include 'database.php';
-$obj = new database();
-$obj->insertMedewerkerUser('GTY', 'GTY208597');
+//$obj = new database();
+//$obj->loginklant('youssef', 'harry');
 
-//$_POST = ['username'=>'Gideon', 'password'=>'123']; 
 
+//$_POST = ['username'=>'youssef', 'password'=>'123']; 
+$msg = '';
 if(isset($_POST['submit'])){
 
     $fieldnames = ['username', 'password'];
@@ -14,14 +15,17 @@ if(isset($_POST['submit'])){
     foreach($fieldnames as $fieldname){
         if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])){
             $error = true; 
+            $msg = 'error';
         }
 
     }
 
     if(!$error){
-        //YUDJND
+        $obj = new database();
+        $obj->loginEmployee($_POST['username'], $_POST['password']);
+        //yurr
     }else{
-        //dHUJMKMGHJKL
+        //do something
     }
 }
 
@@ -42,10 +46,10 @@ if(isset($_POST['submit'])){
     
 <body>
 
-<form action="signup.php" method="post">
+<form action="medewerker.php" method="post">
         <input type="text" name="uname" placeholder="Username" required /><br>
         <input type="password" name="passw" placeholder="Password" required /><br>
-        <input type="submit" value="Sign in" /><br>
+        <a href="medewerker.php"><button>Log in</button></a>
         <a href="index.php">BACK</a>
     </form>
 

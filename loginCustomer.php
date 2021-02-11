@@ -1,11 +1,15 @@
+
+
+
 <?php
 
 include 'database.php';
-$obj = new database();
-$obj->insertKlantenUser('Gideon', 'yup');
+//$obj = new database();
+//$obj->loginklant('youssef', 'harry');
 
-//$_POST = ['username'=>'Gideon', 'password'=>'123']; 
 
+//$_POST = ['username'=>'youssef', 'password'=>'123']; 
+$msg = '';
 if(isset($_POST['submit'])){
 
     $fieldnames = ['username', 'password'];
@@ -14,20 +18,21 @@ if(isset($_POST['submit'])){
     foreach($fieldnames as $fieldname){
         if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])){
             $error = true; 
+            $msg = 'error';
         }
 
     }
 
     if(!$error){
-        //YUDJND
+        $obj = new database();
+        $obj->loginCustomer($_POST['username'], $_POST['password']);
+        //yurr
     }else{
-        //dHUJMKMGHJKL
+        //do something
     }
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,10 +45,10 @@ if(isset($_POST['submit'])){
     
 <body>
 
-<form action="index.php" method="post">
+<form action="klant.php" method="post">
         <input type="text" name="uname" placeholder="Username" required /><br>
         <input type="password" name="passw" placeholder="Password" required /><br>
-        <input type="submit" value="Sign in" /><br>
+        <a href="klant.php"><button>Log in</button></a>
         <a href="index.php">BACK</a>
     </form>
 
