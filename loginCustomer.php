@@ -5,10 +5,10 @@
 
 include 'database.php';
 //$obj = new database();
-//$obj->loginklant('youssef', 'harry');
+//$obj->loginklant('Gideon', 'richard');
 
 
-//$_POST = ['username'=>'youssef', 'password'=>'123']; 
+//$_POST = ['username'=>'Gideon', 'password'=>'123']; 
 $msg = '';
 if(isset($_POST['submit'])){
 

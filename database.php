@@ -76,10 +76,10 @@ class database {
         function loginklant($username, $pwd){
             $sql="SELECT * FROM klant WHERE gebruikersnaam = :uname";
         
-            $stmt = $this->dbh->prepare($sql); // prepared statements prevent sql injections
-            $stmt->execute(['uname'=>$username]); //voert prepared statement uit
+            $stmt = $this->dbh->prepare($sql); 
+            $stmt->execute(['uname'=>$username]); 
         
-            $result = $stmt->fetch(PDO::FETCH_ASSOC); //$result['id] of $result['gebruikersnaam']
+            $result = $stmt->fetch(PDO::FETCH_ASSOC); 
             if($result){
                 if(password_verify($pwd, $result["wachtwoord"])) {
                     echo "Valid Password!";

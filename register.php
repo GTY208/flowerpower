@@ -5,7 +5,7 @@ include 'database.php';
 
 if(isset($_POST['submit'])){
 
-  // maak een array met alle name attributes
+ 
   $fields = [
     	"uname",
       "fname",
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 $obj = new HelperFunctions();
 $no_error = $obj->has_provided_input_for_required_fields($fields);
 
-  // in case of field values, proceed, execute insert
+  
   if($no_error){
     $username = $_POST['uname'];
     $firstname = $_POST['fname'];
