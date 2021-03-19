@@ -2,27 +2,28 @@
 
 class database {
 
-    //properties
+    
     private $host;
     private $dbh;
     private $user;
     private $pass;
     private $db;
 
-    function __construct(){
-        $this->host = 'localhost';
-        $this->user = 'root';
-        $this->pass = '';
-        $this->db = 'flowerpower';
+    function __construct(){         
+        $this->host = 'localhost';         
+        $this->user = 'root';         
+        $this->pass = '';         
+        $this->db = 'flowerpower';  
 
         try{
-            $dsn = "mysql:host=$this->host;dbname=$this->db";
-            $this->dbh = new PDO($dsn, $this->user, $this->pass);
-        }catch(PDOException $e){
-            die("Unable to connect: " . $e->getMessage());
-
-        }
-    }
+        $dsn = "mysql:host=$this->host;dbname=$this->db";             
+        $this->dbh = new PDO($dsn, $this->user, $this->pass);
+        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);             
+                     return $this->dbh;         
+                    }catch(PDOException $e){             
+                    die("Unable to connect: " . $e->getMessage());          
+                }     
+            }
 
         function insertKlantenUser($username, $password){
             $sql = "INSERT INTO klant(klantcode, gebruikersnaam, wachtwoord) VALUES (:id, :username, :password)"; 
@@ -90,9 +91,18 @@ class database {
             } else {
                 echo "Invalid Login";
             }
+            
+        }
+       
+        public function delete($sql, $placeholders, $file){          
+            $stmt = $this->dbh->prepare($sql);          
+            //$sql = 'SELECT * FROM medewerkers WHERE username=:uname';          
+            $stmt->execute($placeholders);         
+            header('location: '.$file);         
+            exit;     
+        }          
+    }
         
-        }
-        }
 
     
 

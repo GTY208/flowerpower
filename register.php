@@ -33,51 +33,39 @@ $no_error = $obj->has_provided_input_for_required_fields($fields);
 ?>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Registratie</title>
-  </head>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="registerStyle">
+    <form method="POST" class="loginForm">       
+      <h2 class="form-signin-heading">&nbsp&nbsp&nbsp&nbspRegistreren</h2>
 
-  <body>
-  	<form method="post" action='register.php' method='post' accept-charset='UTF-8'>
-      <fieldset >
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-        <legend>Registratie</legend>
+      <input type="text" class="formRegister" name="voorletter" placeholder="Voorletter" maxlength="1" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" required autofocus/><br><br>
 
-        <input type="text" name="uname" placeholder="username" required/>
-        <br>
-        <input type="text" name="fname" placeholder="firstname" required/>
-        <br>
-      	<input type="text" name="mname" placeholder="middlename" />
-        <br>  
-      	<input type="text" name="lname" placeholder="lastname" required/>
-        <br>
-        <input type="email" name="email" placeholder="e-mail" required/>
-        <br>
-        <input type="password" name="pwd" placeholder="password" required/>
-        <br>
-        <input type="password" name="repeatpwd" placeholder="repeat password" required/>
-        <br>
-        <input type="submit" name='submit' value"Sign up!"/>
-      </fieldset>
-      <br>
-      <a href="loginCustomer.php">Ik heb al een account</a>
+      <input type="text" class="formRegister" name="tussenvoegsel" placeholder="Tussenvoegsel" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" /><br><br>
+
+      <input type="text" class="formRegister" name="achternaam" placeholder="Achternaam" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" required/><br><br>
+
+      <input type="text" class="formRegister" name="adres" placeholder="Adres" required/><br><br>
+
+      <input type="text" class="formRegister" name="postcode" placeholder="Postcode" required/><br><br>
+
+      <input type="text" class="formRegister" name="woonplaats" placeholder="Woonplaats" required/><br><br>
+
+      <input type="text" class="formRegister" name="geboortedatum" placeholder="Geboortedatum" required/><br><br>
+
+      <input type="gebruikersnaam" class="formRegister" name="gebruikersnaam" placeholder="Gebruikersnaam" required /><br><br>
+
+      <input type="password" class="formRegister" name="password" placeholder="Password" required=""/><br><br>
+
+      <button class="button" type="submit">Registreren</button>   
     </form>
+  </div>
 
-    <div class="container">
-  <h1>FLOWERPOWER</h1>  
-</div>
 
-  </body>
-</html>
+
+
+   
+</body>
+</html> 
